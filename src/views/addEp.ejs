@@ -1,0 +1,18 @@
+<%- include('partials/_header.ejs'); %>
+<%- include('partials/_navbardep.ejs'); %>
+  <div class="col mt-3">
+    <div class="card text-left">
+      <div class="card-body">
+        <form action="/addep" method="post">
+          <div class="mb-3">
+            <label class="form-label">Name Departament</label>
+            <input type="text" name="name_dep" id="name_dep" class="form-control" placeholder="Name Dep..." aria-describedby="helpId" required>
+          </div>
+          <div class="d-grid gap-2 mb-3">
+            <button type="submit" class="btn btn-primary btn-block"><i class="bi bi-send"></i> Send</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+<%- include('partials/_footer.ejs'); %>

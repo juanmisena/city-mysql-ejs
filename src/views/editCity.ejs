@@ -1,0 +1,39 @@
+<%- include('partials/_header.ejs'); %>
+<%- include('partials/_navbar.ejs'); %>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mt-3">
+  <div class="card text-left">
+    <div class="card-body">
+        <form action="/updatecity/<%= ci.id_ci %>" method="post">
+          <div class="mb-3">
+            <input type="hidden" name="id_ci" value="<%= ci.id_ci %>">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Name City</label>
+            <input type="text" name="name_ci" id="name_ci" class="form-control" value="<%= ci.name_ci %>" aria-describedby="helpId" required>
+          </div>
+          <div class="mb-3">
+                <select class="form-select" id="inputGroupSelect01" name="id_dep">
+              <!-- {{#if depu}} -->
+                  <!-- {{#each depu as |item|}} -->
+                  <% depu.forEach(dep => { %>
+                    <!-- {{#if udep}} -->
+                    <% if (dep.id_dep == ci.id_dep) { %>
+                      <option value="<%= dep.id_dep %>" selected><%= dep.name_dep %></option>
+                    <% } else { %>
+                      <!-- {{else}} -->
+                      <option value="<%= dep.id_dep %>"><%= dep.name_dep %></option>
+                    <% } %>
+                    <!-- {{/if}} -->
+                  <% }); %>
+                  <!-- {{/each}} -->
+              <!-- {{/if}} -->
+                </select>
+          </div>
+          <div class="d-grid gap-2 mb-3">
+            <button type="submit" class="btn btn-success"><i class="bi bi-send-dash-fill"></i> Edit</button>
+          </div>
+        </form>
+    </div>
+  </div>
+</div>
+<%- include('partials/_footer.ejs'); %>

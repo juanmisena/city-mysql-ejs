@@ -1,0 +1,31 @@
+<%- include('partials/_header.ejs'); %>
+<%- include('partials/_navbardep.ejs'); %>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mt-3">
+  <table class="table table-bordered table-hover mt-3">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name Departament</th>
+        <th scope="col">Update</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <% if (data) { %>
+      <tbody id="tbodyDep">
+        <% data.forEach((dep, i) => { %>
+          <tr>
+            <th scope="row"><%= (i + 1); %></th>
+            <td><%= dep.name_dep %></td>
+            <td>
+              <a href="/editdep/<%= dep.id_dep %>" class="btn btn-info"><i class="bi bi-pen-fill"></i></a>
+            </td>
+            <td>
+              <button class="btn btn-danger deletedep" data-id="<%= dep.id_dep %>"><i class="bi bi-trash-fill"></i></button>
+            </td>
+          </tr>
+        <% }); %>
+    </tbody>
+  <% } %>
+  </table>
+</div>
+<%- include('partials/_footer.ejs'); %>
